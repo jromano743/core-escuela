@@ -19,11 +19,9 @@ namespace CorEscuela
             ImprimirCursosEscuela(engine.Escuela);
 
             Printer.DrawLine(20);
-            Printer.WriteTitle("Pruebas de polimorfismo");
+            Printer.WriteTitle("Lista de Escuela");
             Printer.DrawLine(20);
-            var alumnoTest = new Alumno{Nombre="Claire UnderWood"};
-
-            ObjetoEscuelaBase ob = alumnoTest;
+            var listaObj = engine.GetObjetosEscuela();
         }
 
         private static void ImprimirCursosEscuela(Escuela escuela)
