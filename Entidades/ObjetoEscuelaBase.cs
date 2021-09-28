@@ -13,7 +13,7 @@ namespace CoreEscuela.Entidades
 
         public override string ToString()
         {
-            return $"{Nombre}, {UniqueID}"
+            return $"{Nombre}, {UniqueID}";
         }
     }
 }

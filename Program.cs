@@ -11,17 +11,27 @@ namespace CorEscuela
     {
         static void Main(string[] args)
         {
+            AppDomain.CurrentDomain.ProcessExit += AccionDelEvento;
+            AppDomain.CurrentDomain.ProcessExit += (object sender, EventArgs e) => Printer.Beep(100, 1000, 1);
             var engine = new EscuelaEngine();
             engine.Inicializar();
             
             Printer.WriteTitle("Bienvenidos a la escuela");
             Printer.Beep();
             ImprimirCursosEscuela(engine.Escuela);
+            
+            Printer.WriteTitle("Funcion de de diccionario");
+            var diccionario = engine.GetDiccionarioObjetos();
+            engine.ImprimirDiccionario(diccionario, false, false, true, false);
+            
+        }
 
-            Printer.DrawLine(20);
-            Printer.WriteTitle("Lista de Escuela");
-            Printer.DrawLine(20);
-            var listaObj = engine.GetObjetosEscuela();
+        private static void AccionDelEvento(object sender, EventArgs e)
+        {
+            Printer.WriteTitle("Saliendo..");
+            Printer.Beep(3000, 1000, 3);
+            Printer.WriteTitle("El programa finalizó correctamente");
+
         }
 
         private static void ImprimirCursosEscuela(Escuela escuela)
