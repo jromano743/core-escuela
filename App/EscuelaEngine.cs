@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using CoreEscuela.Util;
 
-namespace CoreEscuela
+namespace CoreEscuela.App
 {
     public sealed class EscuelaEngine
     {
